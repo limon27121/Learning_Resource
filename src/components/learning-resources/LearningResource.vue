@@ -1,29 +1,36 @@
 <template>
+  <BaseCard>
   <li>
-    <div>
-      <header>
+    <header>
         <h3>{{ title }}</h3>
         <button class="b1">Delete</button>
       </header>
-    </div>
+   
     <p>{{ description }}</p>
     <nav>
       <a :href="link">View Resource</a>
     </nav>
   </li>
   <h1>{{ check }}</h1>
+
+</BaseCard>
+
 </template>
 
 <script>
+import BaseCard from './UI/BaseCard.vue'
 export default {
   //catch the value from parent using props
-  props: ['title', 'description', 'link',"check"]
+  props: ['title', 'description', 'link',"check"],
+  components:{
+    BaseCard
+  }
 }
 </script>
 
 <style scoped>
 li {
-  margin: auto;
+  margin: 10px;
   max-width: 40rem;
 }
 

@@ -1,15 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+ <ul>
+  <li v-for="res in storedResource" :key="res">
+  <h3>{{ res.title }}</h3>
+  <p>{{ res.description }}</p>
+ <a href=" res.link">click</a>
+  </li>
+ </ul>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
+  data(){
+    return{
+      storedResource:[{
+        id:"official",
+        title:"Guide",
+        description:"have to read",
+        link:"www.google.com/"
+      },
+    {
+      id:"official2",
+        title:"Guide2",
+        description:"have to read2",
+        link:"https://www.google.com/"
+    }]
+    }
+  },
   components: {
-    HelloWorld
+   
   }
 }
 </script>

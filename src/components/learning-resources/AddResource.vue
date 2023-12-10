@@ -1,25 +1,51 @@
 <template>
   <div class="card">
-    <form>
+    <form @submit.prevent="submitResource">
       <div class="form-control">
         <label for="title">Title</label>
-        <input id="title" name="title" type="text" />
+        <input id="title" name="title" type="text" v-model="title" />
       </div>
       <div class="form-control">
         <label for="description">Description</label>
-        <textarea id="description" name="description" rows="3"></textarea>
+        <textarea id="description" name="description" rows="3" v-model="description"></textarea>
       </div>
       <div class="form-control">
         <label for="link">Link</label>
-        <input id="link" name="link" type="url" />
+        <input id="link" name="link" type="url" v-model="link" />
       </div>
       <div>
-        <base-button type="submit">Add Resource</base-button>
+        <base-button @click="submitResource">Add Resource</base-button>
       </div>
     </form>
     
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+    
+        title: '',
+        description: '',
+        link: ''
+    };
+  },
+  inject:["add"],
+  methods: {
+    submitResource() {
+      const newTitle=this.title;
+      const newDescription=this.description
+      const newLink=this.link
+      if (newTitle.trim() === "" || newDescription.trim() === "" || newLink.trim() === "") {
+        alert("Invalid Input");
+      }
+      else{
+      this.add(newTitle,newDescription,newLink)
+      }
+    }
+  }
+};
+</script>
 
 <style scoped>
   form {

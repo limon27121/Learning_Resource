@@ -5,8 +5,11 @@
  <button class="secondary-button" @click="store('AddResource')">Add Resource</button>
 </div>
 </BaseCard>
+
 <!-- change the components according to condition -->
+<keep-alive>
  <component :is="setvalue"></component>
+</keep-alive>
 
 
 </template>
@@ -59,13 +62,24 @@ export default {
   provide() {
     return {
       resources: this.storedResources,
+      add:this.addResource
     };
   },
   methods:{
     store(tab){
-      
+
       //select the components according to condition
      this.setvalue=tab
+    },
+    addResource(title,description,url){
+     const newResource={
+      id:new Date().toISOString(),
+      title:title,
+      description:description,
+      link:url
+     }
+     this.storedResources.unshift(newResource)
+     this.setvalue="StoredResource"
     }
   }
 }

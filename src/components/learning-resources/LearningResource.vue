@@ -8,10 +8,10 @@
    
     <p>{{ description }}</p>
     <nav>
-      <a :href="link">View Resource</a>
+      <a :href="link" target="_blank">View Resource</a>
     </nav>
   </li>
-  <h1>{{ check }}</h1>
+  <!-- <h1>{{ check }}</h1> -->
 
 </BaseCard>
 

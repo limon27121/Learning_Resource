@@ -5,6 +5,7 @@
  <button class="secondary-button" @click="store('AddResource')">Add Resource</button>
 </div>
 </BaseCard>
+<!-- change the components according to condition -->
  <component :is="setvalue"></component>
 
 
@@ -62,6 +63,8 @@ export default {
   },
   methods:{
     store(tab){
+      
+      //select the components according to condition
      this.setvalue=tab
     }
   }

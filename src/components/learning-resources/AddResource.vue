@@ -1,5 +1,4 @@
 <template>
-  <base-card>
   <div class="card">
     <form>
       <div class="form-control">
@@ -18,8 +17,8 @@
         <base-button type="submit">Add Resource</base-button>
       </div>
     </form>
+    
   </div>
-  </base-card>
 </template>
 
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <ul>
-   
+    <!-- data binding using loop and send data to other components -->
     <learning-resource
       v-for="res in resources"
       :key="res.id"

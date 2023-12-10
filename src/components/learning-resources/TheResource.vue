@@ -62,7 +62,8 @@ export default {
   provide() {
     return {
       resources: this.storedResources,
-      add:this.addResource
+      add:this.addResource,
+      remove:this.removeResource
     };
   },
   methods:{
@@ -80,6 +81,12 @@ export default {
      }
      this.storedResources.unshift(newResource)
      this.setvalue="StoredResource"
+    },
+    removeResource(resId){
+      const id=this.storedResources.findIndex((res)=>{
+             resId!=res.id
+      })
+      this.storedResources.splice(id,1)
     }
   }
 }

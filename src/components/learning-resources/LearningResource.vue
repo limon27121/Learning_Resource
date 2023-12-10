@@ -3,7 +3,7 @@
   <li>
     <header>
         <h3>{{ title }}</h3>
-        <button class="b1">Delete</button>
+        <button class="b1" @click="remove(id)">Delete</button>
       </header>
    
     <p>{{ description }}</p>
@@ -21,7 +21,8 @@
 import BaseCard from './UI/BaseCard.vue'
 export default {
   //catch the value from parent using props
-  props: ['title', 'description', 'link',"check"],
+  props: ['id','title', 'description', 'link',"check"],
+  inject:['remove'],
   components:{
     BaseCard
   }
